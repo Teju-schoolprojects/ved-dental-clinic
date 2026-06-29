@@ -1,28 +1,28 @@
 "use client";
 
 import React from "react";
-import VistaNavbar from "@/components/vista/VistaNavbar";
-import VistaHero from "@/components/vista/VistaHero";
-import VistaAbout from "@/components/vista/VistaAbout";
-import VistaServices from "@/components/vista/VistaServices";
-import VistaTech from "@/components/vista/VistaTech";
-import VistaGallery from "@/components/vista/VistaGallery";
-import VistaBooking from "@/components/vista/VistaBooking";
-import VistaFooter from "@/components/vista/VistaFooter";
+import VistaNavbarDark from "@/components/vista/dark/VistaNavbarDark";
+import VistaHeroDark from "@/components/vista/dark/VistaHeroDark";
+import VistaAboutDark from "@/components/vista/dark/VistaAboutDark";
+import VistaServicesDark from "@/components/vista/dark/VistaServicesDark";
+import VistaTechDark from "@/components/vista/dark/VistaTechDark";
+import VistaGalleryDark from "@/components/vista/dark/VistaGalleryDark";
+import VistaBookingDark from "@/components/vista/dark/VistaBookingDark";
+import VistaFooterDark from "@/components/vista/dark/VistaFooterDark";
 import CustomCursor from "@/components/CustomCursor";
 
 export default function VistaDentalStudioPage() {
   return (
-    <main className="min-h-screen bg-[#fafbfc] relative selection:bg-teal-500 selection:text-white">
+    <main className="min-h-screen bg-[#050E1A] text-white relative selection:bg-cyan-400 selection:text-black">
       <CustomCursor />
-      <VistaNavbar />
-      <VistaHero />
-      <VistaAbout />
-      <VistaServices />
-      <VistaTech />
-      <VistaGallery />
-      <VistaBooking />
-      <VistaFooter />
+      <VistaNavbarDark />
+      <VistaHeroDark />
+      <VistaAboutDark />
+      <VistaServicesDark />
+      <VistaTechDark />
+      <VistaGalleryDark />
+      <VistaBookingDark />
+      <VistaFooterDark />
     </main>
   );
 }
