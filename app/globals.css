@@ -9,6 +9,12 @@
   --color-brand-text: #0f172a;
   --color-brand-text-muted: #475569;
   
+  --color-vista-teal: #00a896;
+  --color-vista-dark-teal: #028090;
+  --color-vista-slate: #1f2937;
+  --color-vista-bg: #fafbfc;
+  --color-vista-light: #f3f4f6;
+
   --shadow-premium: 0 20px 40px -15px rgba(5, 14, 26, 0.12);
   --shadow-glass: 0 8px 32px 0 rgba(10, 29, 55, 0.06);
   --shadow-accent-glow: 0 0 25px rgba(10, 29, 55, 0.25);
