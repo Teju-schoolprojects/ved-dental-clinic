@@ -1,0 +1,326 @@
+/* Modern Premium Dental Clinic Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --primary: #6D5DF6;
+    --primary-hover: #5b4ce0;
+    --primary-rgb: 109, 93, 246;
+    --primary-light: #EDE9FF;
+    --accent: #FF5A79;
+    
+    --bg-main: #FAFBFF;
+    --bg-card: rgba(255, 255, 255, 0.75);
+    --border-card: rgba(255, 255, 255, 0.5);
+    
+    --text-primary: #1E293B;
+    --text-muted: #64748B;
+    --text-muted-darker: #475569;
+    
+    --shadow-premium: 0 20px 40px -15px rgba(109, 93, 246, 0.12);
+    --shadow-hover: 0 30px 60px -15px rgba(109, 93, 246, 0.25);
+    
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+    --bg-main: #0B0F19;
+    --bg-card: rgba(17, 24, 39, 0.75);
+    --border-card: rgba(255, 255, 255, 0.08);
+    
+    --text-primary: #F8FAFC;
+    --text-muted: #94A3B8;
+    --text-muted-darker: #CBD5E1;
+    
+    --shadow-premium: 0 20px 45px -15px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 35px 70px -10px rgba(109, 93, 246, 0.2);
+    
+    --primary-light: rgba(109, 93, 246, 0.15);
+}
+
+* {
+    scroll-behavior: smooth;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-card);
+    box-shadow: var(--shadow-premium);
+    transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
+}
+
+/* Nav Link Hover Micro-interaction */
+.nav-link {
+    position: relative;
+    color: var(--text-muted);
+    transition: var(--transition-smooth);
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
+}
+
+/* Hero Section Styles */
+.hero-gradient {
+    background: radial-gradient(circle at top right, rgba(109, 93, 246, 0.08) 0%, var(--bg-main) 70%);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    box-shadow: 0 10px 25px -5px rgba(109, 93, 246, 0.4);
+    transition: var(--transition-smooth);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -5px rgba(109, 93, 246, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+/* Floating Animations */
+.floating {
+    animation: floating 6s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+}
+
+/* Custom Services Cards Style */
+.service-card {
+    transition: var(--transition-smooth);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+}
+
+.service-card:hover .icon-box {
+    background: var(--primary);
+    color: #ffffff;
+    transform: scale(1.1) rotate(-6deg);
+    box-shadow: 0 10px 20px rgba(109, 93, 246, 0.3);
+}
+
+.icon-box {
+    transition: var(--transition-smooth);
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* Testimonial Slider styling */
+.testimonial-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Gallery Masonry Layout (Responsive and Fluid) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 240px;
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.gallery-item img {
+    transition: var(--transition-smooth);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0) 60%);
+    opacity: 0;
+    z-index: 1;
+    transition: var(--transition-smooth);
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    right: 20px;
+    color: #ffffff;
+    z-index: 2;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.gallery-item:hover .gallery-overlay {
+    bottom: 20px;
+    opacity: 1;
+}
+
+.gallery-item.span-v2 {
+    grid-row: span 2;
+}
+
+.gallery-item.span-h2 {
+    grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+    .gallery-item.span-h2 {
+        grid-column: span 1;
+    }
+}
+
+/* Accordion transition styles */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+.accordion-active .accordion-content {
+    max-height: 250px;
+    opacity: 1;
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease;
+}
+
+.accordion-active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+/* Interactive Floating Booking Drawer or Drawer Modal */
+.drawer-panel {
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-panel.open {
+    transform: translateX(0);
+}
+
+.overlay {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Smooth Animation */
+.modal-overlay {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+/* Form Styles */
+input, select, textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-card);
+    color: var(--text-primary);
+    transition: var(--transition-smooth);
+}
+
+.dark-mode input, .dark-mode select, .dark-mode textarea {
+    background: rgba(15, 23, 42, 0.6);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(109, 93, 246, 0.15);
+    outline: none;
+}

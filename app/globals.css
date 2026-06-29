@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #0a1d37;
+  --color-brand-dark: #050e1a;
+  --color-brand-bg: #eef4f8;
+  --color-brand-light: #e1ebf4;
+  --color-brand-accent: #1e40af;
+  --color-brand-text: #0f172a;
+  --color-brand-text-muted: #475569;
+  
+  --shadow-premium: 0 20px 40px -15px rgba(5, 14, 26, 0.12);
+  --shadow-glass: 0 8px 32px 0 rgba(10, 29, 55, 0.06);
+  --shadow-accent-glow: 0 0 25px rgba(10, 29, 55, 0.25);
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out infinite 3s;
+  --animate-pulse-slow: pulse-slow 8s linear infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.08);
+  }
+}
+
+:root {
+  --background: #eef4f8;
+  --foreground: #050e1a;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Custom Glassmorphism Classes */
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(10, 29, 55, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(10, 29, 55, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(5, 14, 26, 0.05), 0 1px 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.glass-card-dark {
+  background: rgba(5, 14, 26, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(10, 29, 55, 0.18);
+  color: #0f172a;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  border-color: #0a1d37;
+  box-shadow: 0 0 0 4px rgba(10, 29, 55, 0.15);
+  outline: none;
+}
+
+/* Gradient Texts & Badges */
+.text-gradient-blue {
+  background: linear-gradient(135deg, #050e1a 10%, #0a1d37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #0a1d37 0%, #1e40af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.badge-gradient {
+  background: linear-gradient(135deg, rgba(10, 29, 55, 0.08) 0%, rgba(30, 64, 175, 0.08) 100%);
+  border: 1px solid rgba(10, 29, 55, 0.18);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 29, 55, 0.25);
+  border-radius: 5px;
+  border: 2px solid #f8fafc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(10, 29, 55, 0.45);
+}
+
+/* Custom Cursor Effects */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(10, 29, 55, 0.45);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #0a1d37;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-hover {
+  width: 45px;
+  height: 45px;
+  background-color: rgba(10, 29, 55, 0.1);
+  border-color: rgba(10, 29, 55, 0.8);
+}
+
+/* CSS Utilities */
+.mask-radial {
+  mask-image: radial-gradient(circle, white, transparent);
+  -webkit-mask-image: radial-gradient(circle, white, transparent);
+}

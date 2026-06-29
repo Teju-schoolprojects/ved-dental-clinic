@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Dental Care | Premium Modern Dentistry & Digital Clinic</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Experience premium dental care at Smile Dental Care. We offer advanced implants, smile makeovers, orthodontics, and pediatric care with pain-free technology.">
+    <meta name="keywords" content="dental clinic, implantology, veneer, smile makeover, Invisalign, pediatric dentist, family dentistry">
+    
+    <!-- Tailwind CSS and Google Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6D5DF6',
+                        'primary-hover': '#5b4ce0',
+                        'primary-light': '#EDE9FF',
+                        dark: '#1E293B',
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#FAFBFF] text-[#1E293B] transition-colors duration-500">
+
+    <!-- 1. Sticky Glassmorphism Header Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-40 py-5 bg-transparent border-b border-transparent transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="text-2xl font-extrabold text-[#6D5DF6] flex items-center gap-2 tracking-tight">
+                <i data-lucide="shield-plus" class="w-8 h-8"></i>
+                <span>SmileCare</span>
+            </a>
+            
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex items-center space-x-8 font-semibold text-sm uppercase tracking-wider">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#team" class="nav-link">Dentists</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#faqs" class="nav-link">FAQs</a>
+            </div>
+            
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-500 dark:text-gray-400 transition-colors" aria-label="Toggle Theme">
+                    <i data-lucide="moon" id="theme-icon" class="w-5 h-5"></i>
+                </button>
+                
+                <!-- View Bookings (Drawer trigger) -->
+                <button id="view-bookings-btn" class="relative p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 text-[#6D5DF6] transition-colors" aria-label="View Appointments">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    <span class="booking-badge absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white rounded-full text-[10px] font-extrabold flex items-center justify-center hidden">0</span>
+                </button>
+
+                <!-- Book Now Button -->
+                <a href="#book" class="btn-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hidden sm:inline-block">
+                    Appointment
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-600 dark:text-gray-300 transition-colors" aria-label="Open menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-nav" class="lg:hidden max-h-0 opacity-0 overflow-hidden pointer-events-none transition-all duration-300 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-6 border-t border-gray-100 dark:border-slate-800 mt-2">
+            <div class="flex flex-col space-y-4 py-4 font-semibold text-sm uppercase tracking-wider">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#team" class="nav-link">Dentists</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#faqs" class="nav-link">FAQs</a>
+                <button id="mobile-view-bookings-btn" class="text-left py-2 text-[#6D5DF6] flex items-center gap-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i> My Appointments
+                    <span class="booking-badge w-5 h-5 bg-red-500 text-white rounded-full text-[10px] font-extrabold flex items-center justify-center hidden">0</span>
+                </button>
+                <a href="#book" class="btn-primary text-white text-center py-3 rounded-xl font-bold">Book Appointment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen pt-36 pb-20 px-6 overflow-hidden flex items-center">
+        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Text Content -->
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#EDE9FF] dark:bg-[#6D5DF6]/20 text-[#6D5DF6] font-bold text-xs uppercase mb-6 tracking-widest">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Digital Dentistry Excellence
+                </span>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-8 tracking-tight">
+                    Healthy Smiles <br><span class="text-[#6D5DF6]">Begin Here</span>
+                </h1>
+                <p class="text-gray-500 dark:text-slate-400 text-lg md:text-xl mb-10 max-w-lg leading-relaxed">
+                    Advanced clinical expertise coupled with a warm, pain-free approach. Let us transform your smile and dental experience today.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#book" class="btn-primary text-white px-8 py-4.5 rounded-2xl font-bold text-lg shadow-xl text-center">
+                        Book Appointment
+                    </a>
+                    <a href="tel:+18005550199" class="btn-secondary px-8 py-4.5 rounded-2xl font-bold text-lg text-center flex items-center justify-center gap-2">
+                        <i data-lucide="phone-call" class="w-5 h-5"></i> Call +1 (800) 555-0199
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Graphic Image & Float Cards -->
+            <div class="relative" data-aos="fade-left" data-aos-duration="1200">
+                <img src="images/clinic_lobby.png" alt="SmileCare Modern Lobby" class="rounded-[40px] shadow-2xl border border-white/20 z-10 relative w-full h-[450px] object-cover">
+                <div class="absolute -top-10 -right-10 w-72 h-72 bg-[#6D5DF6]/10 rounded-full filter blur-3xl opacity-60"></div>
+                
+                <!-- Float Card 1: Happy Patients -->
+                <div class="absolute -bottom-8 -left-6 glass-card p-6 rounded-3xl floating z-20">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-[#6D5DF6] p-3 rounded-2xl text-white shadow-lg">
+                            <i data-lucide="smile"></i>
+                        </div>
+                        <div>
+                            <p class="font-extrabold text-2xl text-[#1E293B] dark:text-slate-100">5,000+</p>
+                            <p class="text-[10px] text-gray-500 dark:text-slate-400 uppercase font-bold tracking-widest">Happy Patients</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Float Card 2: Rating -->
+                <div class="absolute top-12 -right-8 glass-card p-4 rounded-2xl z-20 flex items-center gap-3">
+                    <div class="bg-amber-400 p-2.5 rounded-xl text-white">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-[#1E293B] dark:text-slate-100">5.0 Star Rated</p>
+                        <p class="text-[10px] text-gray-500 dark:text-slate-400">On Google Reviews</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. About Clinic -->
+    <section id="about" class="py-28 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <!-- Left Side: Interactive Multi-image Display -->
+            <div data-aos="fade-right" class="grid grid-cols-2 gap-6 relative">
+                <img src="images/treatment_room.png" class="rounded-3xl h-full min-h-[380px] object-cover shadow-lg border border-white/20" alt="Advanced Treatment Room">
+                <div class="space-y-6 pt-12">
+                    <img src="images/happy_smile.png" class="rounded-3xl h-48 w-full object-cover shadow-lg border border-white/20" alt="Beautiful Patient Smile">
+                    <div class="bg-[#6D5DF6] p-8 rounded-3xl text-white shadow-xl flex flex-col justify-center">
+                        <h4 class="text-4xl font-black mb-1">10+</h4>
+                        <p class="text-xs opacity-90 uppercase tracking-widest font-extrabold">Years Experience</p>
+                    </div>
+                </div>
+                <!-- Backdrop glow -->
+                <div class="absolute -bottom-8 -left-8 w-60 h-60 bg-[#6D5DF6]/5 rounded-full filter blur-3xl opacity-50"></div>
+            </div>
+
+            <!-- Right Side: Content -->
+            <div data-aos="fade-left">
+                <span class="text-[#6D5DF6] font-bold text-xs uppercase tracking-widest mb-4 inline-block">Setting New Benchmarks</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight tracking-tight">Setting New Standards in <span class="text-[#6D5DF6]">Patient-First</span> Care</h2>
+                <p class="text-gray-500 dark:text-slate-400 text-lg mb-8 leading-relaxed">
+                    Our clinic is built on the foundations of absolute trust, medical integrity, and cutting-edge dental science. We strive to provide high-quality treatment in a soothing, spa-like environment designed to put you at ease.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-5 mb-12">
+                    <div class="flex items-center gap-3.5">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#EDE9FF] dark:bg-[#6D5DF6]/20 flex items-center justify-center text-[#6D5DF6]">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <span class="font-semibold text-[#1E293B] dark:text-slate-200">Visionary Doctors</span>
+                    </div>
+                    <div class="flex items-center gap-3.5">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#EDE9FF] dark:bg-[#6D5DF6]/20 flex items-center justify-center text-[#6D5DF6]">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <span class="font-semibold text-[#1E293B] dark:text-slate-200">Pain-Free Tech</span>
+                    </div>
+                    <div class="flex items-center gap-3.5">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#EDE9FF] dark:bg-[#6D5DF6]/20 flex items-center justify-center text-[#6D5DF6]">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <span class="font-semibold text-[#1E293B] dark:text-slate-200">Family Focused</span>
+                    </div>
+                    <div class="flex items-center gap-3.5">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#EDE9FF] dark:bg-[#6D5DF6]/20 flex items-center justify-center text-[#6D5DF6]">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <span class="font-semibold text-[#1E293B] dark:text-slate-200">Global Standards</span>
+                    </div>
+                </div>
+                <a href="#services" class="btn-primary text-white px-8 py-3.5 rounded-xl font-bold inline-block">
+                    Explore Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Our Services -->
+    <section id="services" class="py-28 px-6 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <span class="text-[#6D5DF6] font-bold text-xs uppercase tracking-widest mb-4 inline-block">Specialized Dental Care</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">World Class Services</h2>
+                <p class="text-gray-500 dark:text-slate-400 max-w-xl mx-auto text-lg">
+                    Comprehensive dental solutions tailored to your unique smile needs using the latest digital dentistry tools.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card p-10 rounded-[35px] service-card group relative overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="sparkles" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Smile Makeover</h3>
+                    <p class="text-gray-500 dark:text-slate-400 leading-relaxed mb-6">
+                        Complete aesthetic transformations using premium porcelain veneers and modern digital smile design techniques.
+                    </p>
+                    <a href="#book" class="text-[#6D5DF6] font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+                        Book Consultation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="glass-card p-10 rounded-[35px] service-card group relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Dental Implants</h3>
+                    <p class="text-gray-500 dark:text-slate-400 leading-relaxed mb-6">
+                        Replace missing teeth permanently with surgical-grade titanium implants customized to blend perfectly with your smile.
+                    </p>
+                    <a href="#book" class="text-[#6D5DF6] font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+                        Book Consultation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="glass-card p-10 rounded-[35px] service-card group relative overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box w-16 h-16 rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="activity" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Braces & Aligners</h3>
+                    <p class="text-gray-500 dark:text-slate-400 leading-relaxed mb-6">
+                        Straighten teeth discreetly and comfortably with Invisalign clear aligners or modern advanced orthodontic systems.
+                    </p>
+                    <a href="#book" class="text-[#6D5DF6] font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+                        Book Consultation <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Specialists Doctors -->
+    <section id="team" class="py-28 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20" data-aos="fade-up">
+                <span class="text-[#6D5DF6] font-bold text-xs uppercase tracking-widest mb-4 inline-block">Clinical Leaders</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Our Specialist Doctors</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Dr 1 -->
+                <div class="glass-card p-8 rounded-3xl text-center group transition-all" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-48 h-48 rounded-full overflow-hidden mx-auto mb-6 border-4 border-white dark:border-slate-800 shadow-xl relative">
+                        <img src="images/doctor_sarah.png" alt="Dr. Sarah Johnson" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h4 class="text-2xl font-bold mb-1">Dr. Sarah Johnson</h4>
+                    <p class="text-[#6D5DF6] font-semibold mb-4 text-sm">Senior Implantologist</p>
+                    <p class="text-xs text-gray-500 dark:text-slate-400 mb-6">Over 12 years of surgical excellence in implant reconstruction and dental aesthetics.</p>
+                    <div class="flex justify-center gap-4 text-gray-400 dark:text-slate-500">
+                        <a href="#" class="hover:text-[#6D5DF6] transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="hover:text-[#6D5DF6] transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Dr 2 -->
+                <div class="glass-card p-8 rounded-3xl text-center group transition-all" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-48 h-48 rounded-full overflow-hidden mx-auto mb-6 border-4 border-white dark:border-slate-800 shadow-xl relative">
+                        <img src="images/doctor_mark.png" alt="Dr. Mark Miller" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h4 class="text-2xl font-bold mb-1">Dr. Mark Miller</h4>
+                    <p class="text-[#6D5DF6] font-semibold mb-4 text-sm">Orthodontic Specialist</p>
+                    <p class="text-xs text-gray-500 dark:text-slate-400 mb-6">Expert in invisible aligners, digital treatment design, and modern youth orthodontics.</p>
+                    <div class="flex justify-center gap-4 text-gray-400 dark:text-slate-500">
+                        <a href="#" class="hover:text-[#6D5DF6] transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="hover:text-[#6D5DF6] transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Dr 3 -->
+                <div class="glass-card p-8 rounded-3xl text-center group transition-all" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-48 h-48 rounded-full overflow-hidden mx-auto mb-6 border-4 border-white dark:border-slate-800 shadow-xl relative">
+                        <img src="images/doctor_elena.png" alt="Dr. Elena Smith" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h4 class="text-2xl font-bold mb-1">Dr. Elena Smith</h4>
+                    <p class="text-[#6D5DF6] font-semibold mb-4 text-sm">Pediatric Dentist</p>
+                    <p class="text-xs text-gray-500 dark:text-slate-400 mb-6">Compassionate dental care expert dedicated to kids and anxiety-free dentistry.</p>
+                    <div class="flex justify-center gap-4 text-gray-400 dark:text-slate-500">
+                        <a href="#" class="hover:text-[#6D5DF6] transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="hover:text-[#6D5DF6] transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Smile Gallery Section (Masonry) -->
+    <section id="gallery" class="py-28 px-6 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-[#6D5DF6] font-bold text-xs uppercase tracking-widest mb-4 inline-block">Real Smile Transformations</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">Smile Gallery</h2>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Gallery 1: Smile Portrait -->
+                <div class="gallery-item rounded-3xl shadow-lg border border-white/10 span-v2">
+                    <img src="images/happy_smile.png" alt="Transformation Result">
+                    <div class="gallery-overlay">
+                        <h4 class="text-lg font-bold">Aesthetic Makeover</h4>
+                        <p class="text-xs opacity-85">Porcelain Veneers transformation</p>
+                    </div>
+                </div>
+                <!-- Gallery 2: Treatment Room -->
+                <div class="gallery-item rounded-3xl shadow-lg border border-white/10">
+                    <img src="images/treatment_room.png" alt="Clinical Setup">
+                    <div class="gallery-overlay">
+                        <h4 class="text-lg font-bold">Digital Implant Center</h4>
+                        <p class="text-xs opacity-85">Modern surgical setups</p>
+                    </div>
+                </div>
+                <!-- Gallery 3: Clinic Lobby -->
+                <div class="gallery-item rounded-3xl shadow-lg border border-white/10 span-h2">
+                    <img src="images/clinic_lobby.png" alt="Lobby Lounge">
+                    <div class="gallery-overlay">
+                        <h4 class="text-lg font-bold">SmileCare Premium Lounge</h4>
+                        <p class="text-xs opacity-85">Designed for client comfort</p>
+                    </div>
+                </div>
+                <!-- Gallery 4: Clinical Support -->
+                <div class="gallery-item rounded-3xl shadow-lg border border-white/10">
+                    <img src="images/treatment_room.png" alt="Diagnostics">
+                    <div class="gallery-overlay">
+                        <h4 class="text-lg font-bold">Diagnostics Center</h4>
+                        <p class="text-xs opacity-85">Ultra-low dose CT Imaging</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Interactive Testimonials Section -->
+    <section class="py-28 px-6 overflow-hidden">
+        <div class="max-w-4xl mx-auto relative">
+            <div class="text-center mb-16">
+                <span class="text-[#6D5DF6] font-bold text-xs uppercase tracking-widest mb-4 inline-block">Client Testimonials</span>
+                <h2 class="text-4xl font-extrabold tracking-tight">What Our Patients Say</h2>
+            </div>
+
+            <!-- Testimonial Slider Frame -->
+            <div class="testimonial-carousel overflow-hidden relative p-8 md:p-12 glass-card rounded-[35px] border border-white/20">
+                <div class="testimonial-track w-full">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide min-w-full flex-shrink-0 flex flex-col items-center text-center px-4">
+                        <i data-lucide="quote" class="w-12 h-12 text-[#6D5DF6]/30 mb-6"></i>
+                        <p class="text-lg md:text-xl font-medium text-gray-700 dark:text-slate-300 italic mb-8 leading-relaxed">
+                            "The modern technology they have is absolutely amazing. I had a full smile makeover and felt completely pain-free throughout the entire process. Dr. Sarah Johnson is a true wizard!"
+                        </p>
+                        <h4 class="font-extrabold text-lg">Rebecca Sterling</h4>
+                        <p class="text-xs text-[#6D5DF6] font-semibold mt-1">Cosmetic Patient</p>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide min-w-full flex-shrink-0 flex flex-col items-center text-center px-4">
+                        <i data-lucide="quote" class="w-12 h-12 text-[#6D5DF6]/30 mb-6"></i>
+                        <p class="text-lg md:text-xl font-medium text-gray-700 dark:text-slate-300 italic mb-8 leading-relaxed">
+                            "I have always had dental anxiety, but this clinic feels like a premium spa. Dr. Elena and the staff are incredibly gentle. My children actually look forward to their visits now!"
+                        </p>
+                        <h4 class="font-extrabold text-lg">Jonathan Crane</h4>
+                        <p class="text-xs text-[#6D5DF6] font-semibold mt-1">Family Care Patient</p>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide min-w-full flex-shrink-0 flex flex-col items-center text-center px-4">
+                        <i data-lucide="quote" class="w-12 h-12 text-[#6D5DF6]/30 mb-6"></i>
+                        <p class="text-lg md:text-xl font-medium text-gray-700 dark:text-slate-300 italic mb-8 leading-relaxed">
+                            "Replacing my missing tooth with a titanium implant here was smooth, quick, and completely straightforward. Highly professional service with state-of-the-art diagnostics."
+                        </p>
+                        <h4 class="font-extrabold text-lg">Marcus Aurelius</h4>
+                        <p class="text-xs text-[#6D5DF6] font-semibold mt-1">Implant Patient</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <button id="prev-testimonial" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-300 border border-gray-100 dark:border-slate-700 flex items-center justify-center hover:bg-[#EDE9FF] dark:hover:bg-slate-700 shadow-md transition-colors" aria-label="Previous testimonial">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+                <button id="next-testimonial" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-slate-800 text-gray-600 dark:text-gray-300 border border-gray-100 dark:border-slate-700 flex items-center justify-center hover:bg-[#EDE9FF] dark:hover:bg-slate-700 shadow-md transition-colors" aria-label="Next testimonial">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Dots Indicator -->
+            <div id="testimonial-dots" class="flex justify-center gap-2.5 mt-8"></div>
+        </div>
+    </section>
+
+    <!-- 8. Interactive FAQs Section -->
+    <section id="faqs" class="py-28 px-6 bg-slate-50 dark:bg-slate-900/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-[#6D5DF6] font-bold text-xs uppercase tracking-widest mb-4 inline-block">Frequently Asked Questions</span>
+                <h2 class="text-4xl font-extrabold tracking-tight">Got Questions? We Have Answers</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item glass-card rounded-2xl border border-gray-100 dark:border-slate-800 overflow-hidden">
+                    <button class="faq-header w-full px-8 py-6 text-left flex justify-between items-center font-bold text-lg focus:outline-none">
+                        <span>Are dental implants procedure painful?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-[#6D5DF6]"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="px-8 pb-6 text-gray-500 dark:text-slate-400 leading-relaxed">
+                            No, we use premium targeted local anesthesia and modern precision surgical guides. Most patients experience zero pain during the procedure, and minor post-op soreness is easily managed with typical pain relievers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item glass-card rounded-2xl border border-gray-100 dark:border-slate-800 overflow-hidden">
+                    <button class="faq-header w-full px-8 py-6 text-left flex justify-between items-center font-bold text-lg focus:outline-none">
+                        <span>How long does a Smile Makeover take?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-[#6D5DF6]"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="px-8 pb-6 text-gray-500 dark:text-slate-400 leading-relaxed">
+                            Typically, a complete smile makeover takes between 2 to 3 appointments over a 2-week period. During this time, we perform digital mockups, prepare the teeth, place temporaries, and construct and bind your custom porcelain veneers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item glass-card rounded-2xl border border-gray-100 dark:border-slate-800 overflow-hidden">
+                    <button class="faq-header w-full px-8 py-6 text-left flex justify-between items-center font-bold text-lg focus:outline-none">
+                        <span>Do you accept dental insurance policies?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-[#6D5DF6]"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="px-8 pb-6 text-gray-500 dark:text-slate-400 leading-relaxed">
+                            Yes, we partner with a wide variety of leading national insurance providers. Our administrative staff handles billing, co-pays, and direct pre-authorization claims to ensure you maximize your dental benefits.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item glass-card rounded-2xl border border-gray-100 dark:border-slate-800 overflow-hidden">
+                    <button class="faq-header w-full px-8 py-6 text-left flex justify-between items-center font-bold text-lg focus:outline-none">
+                        <span>What should I do in a dental emergency?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-[#6D5DF6]"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="px-8 pb-6 text-gray-500 dark:text-slate-400 leading-relaxed">
+                            Call our emergency hotline (+1 800 555-0199) immediately. We prioritize urgent trauma, structural fractures, and severe acute pain with dedicated same-day emergency appointments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Timings & Appointment Booking -->
+    <section id="book" class="py-28 px-6 bg-slate-900 text-white overflow-hidden relative">
+        <!-- background visual elements -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[#6D5DF6]/10 rounded-full filter blur-3xl opacity-30"></div>
+        <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-[#FF5A79]/5 rounded-full filter blur-3xl opacity-30"></div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 relative z-10 items-center">
+            <!-- Timings info (5 cols) -->
+            <div class="lg:col-span-5" data-aos="fade-right">
+                <span class="text-[#6D5DF6] font-bold text-xs uppercase tracking-widest mb-4 inline-block">Scheduling Details</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">Ready for Your Visit?</h2>
+                <p class="text-gray-400 text-lg mb-10 leading-relaxed">
+                    Check our operational hours below. We recommend scheduling appointments at least 48 hours in advance to secure your preferred slots.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                        <span class="text-gray-400 font-medium">Monday - Friday</span>
+                        <span class="font-bold text-slate-100">9:00 AM - 7:00 PM</span>
+                    </div>
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                        <span class="text-gray-400 font-medium">Saturday</span>
+                        <span class="font-bold text-slate-100">10:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                        <span class="text-gray-400 font-medium">Sunday</span>
+                        <span class="text-rose-400 font-bold uppercase tracking-wide">Closed</span>
+                    </div>
+                </div>
+
+                <div class="mt-12 p-8 glass-card bg-white/5 border-white/10 rounded-3xl">
+                    <div class="flex items-center gap-4">
+                        <div class="bg-rose-500/20 text-rose-400 p-3 rounded-2xl">
+                            <i data-lucide="phone-call" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-rose-400 font-bold text-xs uppercase tracking-widest">Emergency Hotline</h4>
+                            <p class="text-2xl font-extrabold text-slate-100 mt-1">+1 (800) 555-0199</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Booking Form (7 cols) -->
+            <div class="lg:col-span-7" data-aos="fade-left">
+                <div class="glass-card bg-white/5 border-white/10 p-8 md:p-12 rounded-[40px] text-gray-900 dark:text-slate-100">
+                    <h3 class="text-3xl font-extrabold mb-8 text-center text-white">Book Online</h3>
+                    <form id="appointment-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Name -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2 tracking-wider">Your Name *</label>
+                                <input type="text" id="booking-name" required placeholder="e.g. John Doe" class="w-full px-5 py-4 rounded-2xl border-white/10 bg-white/10 text-white placeholder-gray-500">
+                            </div>
+                            <!-- Phone -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2 tracking-wider">Phone Number *</label>
+                                <input type="tel" id="booking-phone" required placeholder="e.g. +1 555-1234" class="w-full px-5 py-4 rounded-2xl border-white/10 bg-white/10 text-white placeholder-gray-500">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Email -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2 tracking-wider">Email Address</label>
+                                <input type="email" id="booking-email" placeholder="e.g. john@example.com" class="w-full px-5 py-4 rounded-2xl border-white/10 bg-white/10 text-white placeholder-gray-500">
+                            </div>
+                            <!-- Service Select -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2 tracking-wider">Desired Service *</label>
+                                <select id="booking-service" required class="w-full px-5 py-4 rounded-2xl border-white/10 bg-white/10 text-white select-theme">
+                                    <option class="text-dark bg-slate-900" disabled selected value="Choose Service">Choose Service</option>
+                                    <option class="text-dark bg-slate-900" value="General Checkup">General Checkup</option>
+                                    <option class="text-dark bg-slate-900" value="Smile Makeover">Smile Makeover</option>
+                                    <option class="text-dark bg-slate-900" value="Dental Implants">Dental Implants</option>
+                                    <option class="text-dark bg-slate-900" value="Braces & Aligners">Braces & Aligners</option>
+                                    <option class="text-dark bg-slate-900" value="Pediatric Dental Care">Pediatric Care</option>
+                                    <option class="text-dark bg-slate-900" value="Emergency Dentistry">Emergency Care</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Date picker -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2 tracking-wider">Appointment Date *</label>
+                                <input type="date" id="booking-date" required class="w-full px-5 py-4 rounded-2xl border-white/10 bg-white/10 text-white">
+                            </div>
+                            <!-- Time slot -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-2 tracking-wider">Time Slot *</label>
+                                <select id="booking-time" required class="w-full px-5 py-4 rounded-2xl border-white/10 bg-white/10 text-white">
+                                    <option class="text-dark bg-slate-900" disabled selected value="">Select Time</option>
+                                    <option class="text-dark bg-slate-900" value="09:00 AM">09:00 AM</option>
+                                    <option class="text-dark bg-slate-900" value="10:30 AM">10:30 AM</option>
+                                    <option class="text-dark bg-slate-900" value="11:30 AM">11:30 AM</option>
+                                    <option class="text-dark bg-slate-900" value="01:30 PM">01:30 PM</option>
+                                    <option class="text-dark bg-slate-900" value="03:00 PM">03:00 PM</option>
+                                    <option class="text-dark bg-slate-900" value="04:30 PM">04:30 PM</option>
+                                    <option class="text-dark bg-slate-900" value="06:00 PM">06:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Notes -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-400 mb-2 tracking-wider">Message or Symptoms</label>
+                            <textarea id="booking-notes" rows="3" placeholder="Tell us about your dental issues or requirements..." class="w-full px-5 py-4 rounded-2xl border-white/10 bg-white/10 text-white placeholder-gray-500"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full btn-primary text-white py-5 rounded-2xl font-bold text-lg shadow-2xl mt-4">
+                            Send Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-24 pb-12 px-6 bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-900 transition-colors">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-16 mb-20">
+            <!-- Brand -->
+            <div class="col-span-2">
+                <a href="#home" class="text-3xl font-extrabold text-[#6D5DF6] flex items-center gap-2 mb-6">
+                    <i data-lucide="shield-plus" class="w-9 h-9"></i> SmileCare
+                </a>
+                <p class="text-gray-500 dark:text-slate-400 max-w-sm mb-8 leading-relaxed text-sm">
+                    A family-focused team of dental professionals dedicated to your long-term oral health and aesthetic wellness.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#EDE9FF] dark:bg-slate-900 text-[#6D5DF6] flex items-center justify-center hover:scale-110 transition-transform"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#EDE9FF] dark:bg-slate-900 text-[#6D5DF6] flex items-center justify-center hover:scale-110 transition-transform"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-[#EDE9FF] dark:bg-slate-900 text-[#6D5DF6] flex items-center justify-center hover:scale-110 transition-transform"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+            
+            <!-- Links -->
+            <div>
+                <h4 class="font-bold text-lg mb-6">Explore Links</h4>
+                <ul class="space-y-4 text-gray-500 dark:text-slate-400 font-medium text-sm">
+                    <li><a href="#about" class="hover:text-[#6D5DF6] transition-colors">About Story</a></li>
+                    <li><a href="#services" class="hover:text-[#6D5DF6] transition-colors">Specialty Procedures</a></li>
+                    <li><a href="#team" class="hover:text-[#6D5DF6] transition-colors">Clinical Doctors</a></li>
+                    <li><a href="#faqs" class="hover:text-[#6D5DF6] transition-colors">FAQS Help</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contacts -->
+            <div>
+                <h4 class="font-bold text-lg mb-6">Contact Us</h4>
+                <ul class="space-y-4 text-gray-500 dark:text-slate-400 font-medium text-sm">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="map-pin" class="text-[#6D5DF6] flex-shrink-0 w-5 h-5 mt-0.5"></i>
+                        <span>101 Dental Plaza, Suite 400, Manhattan, NY 10001</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="phone" class="text-[#6D5DF6] flex-shrink-0 w-5 h-5"></i>
+                        <span>+1 212 999 000</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="mail" class="text-[#6D5DF6] flex-shrink-0 w-5 h-5"></i>
+                        <span>hello@smilecare.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center pt-10 border-t border-gray-100 dark:border-slate-900 text-gray-400 dark:text-slate-500 text-xs">
+            © 2026 Smile Dental Care Clinic. All Rights Reserved. Designed with Excellence.
+        </div>
+    </footer>
+
+    <!-- 10. Bookings Drawer Sidebar (Off-canvas) -->
+    <div id="drawer-overlay" class="overlay fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40"></div>
+    <div id="bookings-drawer" class="drawer-panel fixed top-0 right-0 w-full max-w-md h-full bg-white dark:bg-slate-950 shadow-2xl border-l border-gray-100 dark:border-slate-900 z-50 flex flex-col">
+        <div class="p-6 border-b border-gray-100 dark:border-slate-900 flex justify-between items-center">
+            <div>
+                <h4 class="text-xl font-bold">My Appointments</h4>
+                <p class="text-xs text-gray-500 dark:text-slate-400 mt-1">Locally booked clinic visits</p>
+            </div>
+            <button id="close-drawer-btn" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-900 text-gray-400 dark:text-slate-500 transition-colors" aria-label="Close panel">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <!-- Bookings lists -->
+        <div id="bookings-list" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Loaded dynamically in JS -->
+        </div>
+        
+        <div class="p-6 border-t border-gray-100 dark:border-slate-900 bg-gray-50 dark:bg-slate-900/20">
+            <a href="#book" onclick="document.getElementById('close-drawer-btn').click();" class="w-full btn-primary text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                <i data-lucide="plus-circle" class="w-5 h-5"></i> Schedule New Visit
+            </a>
+        </div>
+    </div>
+
+    <!-- 11. Appointment Success Modal -->
+    <div id="success-modal" class="modal-overlay fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-6">
+        <div class="modal-content glass-card bg-white dark:bg-slate-900 w-full max-w-lg p-10 rounded-[35px] text-center border-none shadow-2xl">
+            <!-- Icon -->
+            <div class="w-20 h-20 bg-emerald-100 dark:bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
+                <i data-lucide="check-circle" class="w-10 h-10"></i>
+            </div>
+            
+            <h3 class="text-3xl font-extrabold mb-3">Booking Confirmed!</h3>
+            <p class="text-gray-500 dark:text-slate-400 mb-8 text-sm">Your appointment request was processed successfully. Here are your booking details:</p>
+            
+            <!-- Details Card -->
+            <div class="bg-gray-50 dark:bg-slate-950/50 p-6 rounded-2xl text-left border border-gray-100 dark:border-slate-900 space-y-3.5 mb-8">
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400 uppercase font-bold tracking-wider">Appointment ID</span>
+                    <span id="modal-booking-id" class="font-extrabold text-gray-800 dark:text-slate-200">ID-123456</span>
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400 uppercase font-bold tracking-wider">Service Requested</span>
+                    <span id="modal-booking-service" class="font-extrabold text-[#6D5DF6]">General Care</span>
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                    <span class="text-gray-400 uppercase font-bold tracking-wider">Date & Time</span>
+                    <span id="modal-booking-datetime" class="font-extrabold text-gray-800 dark:text-slate-200">Mon, Jul 1 at 10:30 AM</span>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <button id="success-confirm" class="w-full btn-primary text-white py-4.5 rounded-2xl font-bold text-lg shadow-lg">
+                Awesome, Thank You!
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/123456789" class="fixed bottom-8 right-8 z-30 bg-[#25D366] text-white p-4.5 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center shadow-[#25D366]/30 hover:shadow-[#25D366]/50" aria-label="Chat on WhatsApp">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <!-- Scrolling Animations Library & Application Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Init Scroll Animation library
+        if (window.AOS) {
+            AOS.init({
+                duration: 900,
+                once: true,
+                easing: 'ease-out-quad',
+            });
+        }
+    </script>
+</body>
+</html>
